@@ -1,118 +1,172 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { FiArrowRight } from "react-icons/fi";
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+const index = () => {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+    <section className="overflow-x-hidden min-h-screen bg-neutral-950 p-4 md:p-8">
+      <div className="mx-auto max-w-5xl ">
+        <Link
+          heading="About"
+          subheading="Learn what we do here"
+          imgSrc="https://plus.unsplash.com/premium_photo-1700081739665-40b74df3789e?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          href="#"
+        />
+        <Link
+          heading="Clients"
+          subheading="We work with great people"
+          imgSrc="https://images.unsplash.com/photo-1560250056-07ba64664864?q=80&w=1451&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          href="#"
+        />
+        <Link
+          heading="Portfolio"
+          subheading="Our work speaks for itself"
+          imgSrc="https://images.unsplash.com/photo-1700049749697-63beefb4915e?q=80&w=1412&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          href="#"
+        />
+        <Link
+          heading="Careers"
+          subheading="We want cool people"
+          imgSrc="https://images.unsplash.com/photo-1553531889-e6cf4d692b1b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          href="#"
+        />
+        <Link
+          heading="Fun"
+          subheading="Incase you're bored"
+          imgSrc="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          href="#"
         />
       </div>
+    </section>
+  );
+};
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+const Link = ({ heading, subheading, imgSrc, href }) => {
+  const ref = useRef(null);
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
+  const xSpring = useSpring(x);
+  const ySpring = useSpring(y);
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+  const top = useTransform(xSpring, [0.5, -0.5], ["40%", "60%"]);
+  const left = useTransform(ySpring, [0.5, -0.5], ["60%", "70%"]);
+
+  const handleMouseMove = (e) => {
+    const rect = ref.current.getBoundingClientRect();
+
+    const width = rect.width;
+    const height = rect.height;
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  return (
+    <motion.a
+      ref={ref}
+      initial="initial"
+      whileHover="whileHover"
+      onMouseMove={handleMouseMove}
+      href={href}
+      className="group relative  flex items-center justify-between  border-b-2 border-neutral-700 py-4 transition-colors duration-500 md:py-8 hover:border-neutral-50"
+    >
+      <div>
+        <motion.span
+          className="relative z-10 block text-4xl font-bold text-neutral-500 transition-colors duration-500 md:text-6xl group-hover:text-neutral-50"
+          variants={{
+            initial: {
+              x: 0,
+            },
+
+            whileHover: {
+              x: -16,
+            },
+          }}
+          transition={{
+            type: "spring",
+            delayChildren: 0.25,
+            staggerChildren: 0.075,
+          }}
         >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+          {heading.split("").map((l, i) => {
+            return (
+              <motion.span
+                className="inline-block"
+                key={i}
+                variants={{
+                  initial: {
+                    x: 0,
+                  },
+
+                  whileHover: {
+                    x: 16,
+                    rotateY: 360,
+                  },
+                }}
+                transition={{ type: "spring" }}
+              >
+                {l}
+              </motion.span>
+            );
+          })}
+        </motion.span>
+        <span className="relative z-10 block mt-2 font-medium text-neutral-500 transition-colors duration-500 group-hover:text-neutral-50 ">
+          {subheading}
+        </span>
       </div>
-    </main>
-  )
-}
+
+      {/* img */}
+
+      <motion.img
+        style={{
+          top,
+          left,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
+        src={imgSrc}
+        className="absolute z-0 h-20 w-28 rounded-lg object-cover md:h-32 md:w-48 "
+        variants={{
+          initial: {
+            scale: 0,
+            rotate: "-10.5deg",
+          },
+
+          whileHover: {
+            scale: 1,
+            rotate: "10.5deg",
+          },
+        }}
+        transition={{ type: "spring" }}
+      />
+
+      <motion.div
+        variants={{
+          initial: {
+            x: "25%",
+            opacity: 0,
+          },
+
+          whileHover: {
+            x: "0%",
+            opacity: 1,
+          },
+        }}
+        transition={{ type: "spring" }}
+        className="relative z-10 p-4"
+      >
+        <FiArrowRight className="text-5xl text-neutral-50" />
+      </motion.div>
+    </motion.a>
+  );
+};
+
+export default index;
